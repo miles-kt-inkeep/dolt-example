@@ -1,0 +1,1 @@
+ALTER TABLE "test" ADD COLUMN "test_bool" boolean DEFAULT false NOT NULL;

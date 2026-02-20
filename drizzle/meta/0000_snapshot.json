@@ -1,5 +1,5 @@
 {
-  "id": "22897e31-58c0-407b-a5d5-b5060368b720",
+  "id": "5f4eaa65-f012-41a2-83b1-17eeefe252b0",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -8,23 +8,44 @@
       "name": "test",
       "schema": "",
       "columns": {
+        "tenant_id": {
+          "name": "tenant_id",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "test_id": {
+          "name": "test_id",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "project_id": {
+          "name": "project_id",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        },
         "id": {
           "name": "id",
           "type": "varchar(256)",
           "primaryKey": true,
-          "notNull": true
-        },
-        "test_int": {
-          "name": "test_int",
-          "type": "integer",
-          "primaryKey": false,
           "notNull": true
         }
       },
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
+      "uniqueConstraints": {
+        "unique_tenant_test_id": {
+          "name": "unique_tenant_test_id",
+          "nullsNotDistinct": false,
+          "columns": [
+            "tenant_id",
+            "test_id"
+          ]
+        }
+      },
       "policies": {},
       "checkConstraints": {},
       "isRLSEnabled": false

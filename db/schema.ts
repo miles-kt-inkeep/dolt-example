@@ -1,9 +1,12 @@
-import { boolean, integer, pgTable, varchar } from 'drizzle-orm/pg-core';
+import { boolean, integer, pgTable, unique, varchar } from 'drizzle-orm/pg-core';
 
 
 const testTable = pgTable('test', {
+  tenant_id: varchar('tenant_id', { length: 256 }).notNull(),
+  test_id: varchar('test_id', { length: 256 }).notNull(),
+  project_id: varchar('project_id', { length: 256 }).notNull(),
   id: varchar('id', { length: 256 }).notNull().primaryKey(),
-  test_int: integer('test_int').notNull(),
-  test_bool: boolean('test_bool').notNull().default(false),
-});
+}, (table) => [
+  unique('unique_tenant_test_id').on(table.tenant_id, table.project_id, table.test_id),
+]);
 export default testTable;

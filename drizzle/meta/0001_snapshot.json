@@ -1,6 +1,6 @@
 {
-  "id": "22122a2f-bda6-4bc9-8258-09cfcf634e77",
-  "prevId": "22897e31-58c0-407b-a5d5-b5060368b720",
+  "id": "67ab3dbb-3f09-431f-98fd-c2152d65d181",
+  "prevId": "5f4eaa65-f012-41a2-83b1-17eeefe252b0",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -8,30 +8,45 @@
       "name": "test",
       "schema": "",
       "columns": {
+        "tenant_id": {
+          "name": "tenant_id",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "test_id": {
+          "name": "test_id",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "project_id": {
+          "name": "project_id",
+          "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": true
+        },
         "id": {
           "name": "id",
           "type": "varchar(256)",
           "primaryKey": true,
           "notNull": true
-        },
-        "test_int": {
-          "name": "test_int",
-          "type": "integer",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "test_bool": {
-          "name": "test_bool",
-          "type": "boolean",
-          "primaryKey": false,
-          "notNull": true,
-          "default": false
         }
       },
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {},
+      "uniqueConstraints": {
+        "unique_tenant_test_id": {
+          "name": "unique_tenant_test_id",
+          "nullsNotDistinct": false,
+          "columns": [
+            "tenant_id",
+            "project_id",
+            "test_id"
+          ]
+        }
+      },
       "policies": {},
       "checkConstraints": {},
       "isRLSEnabled": false

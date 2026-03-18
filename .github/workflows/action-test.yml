@@ -33,4 +33,4 @@ jobs:
             - name: Trigger Inkeep Agent
               uses: inkeep/inkeep-agents-action@f2ccac1f117a171cac1e9e65852e2196769f50b5 # v0
               with:
-                  trigger-url: http://localhost:3002/run/tenants/default/projects/test/agents/test/triggers/fevb1vic79k8i7zrcq4e5
+                  trigger-url: https://inkeep-agents.ngrok.io/run/tenants/default/projects/test/agents/test/triggers/fevb1vic79k8i7zrcq4e5

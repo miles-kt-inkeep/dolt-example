@@ -31,7 +31,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Trigger Inkeep Agent
-              uses: inkeep/inkeep-agents-action@f2ccac1f117a171cac1e9e65852e2196769f50b5 # v0
+              uses: inkeep/inkeep-agents-action@fbbc92842bd025f044cb7e4d827882fd85914f26 # v0
               with:
                   trigger-url: https://inkeep-agents.ngrok.io/run/tenants/default/projects/test/agents/test/triggers/fevb1vic79k8i7zrcq4e5
                   api-base-url: https://inkeep-agents.ngrok.io

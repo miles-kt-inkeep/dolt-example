@@ -32,4 +32,5 @@ jobs:
         steps:
             - name: Trigger Inkeep Agent
               uses: inkeep/inkeep-agents-action@fbbc92842bd025f044cb7e4d827882fd85914f26 # v0
-              
+              with:
+                  trigger-url: https://api.agents.inkeep.com/run/tenants/default/projects/testing/agents/test/triggers/2yusily1az3goe6nynncd
